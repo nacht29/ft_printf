@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yachan <yachan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:59:23 by yachan            #+#    #+#             */
-/*   Updated: 2024/07/10 01:30:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/27 14:22:48 by yachan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@
 #  error "Unsupported operating system"
 # endif
 
-size_t	ft_strlen(char *s);
+size_t	ft_strlen(const char *s);
 int		putchr(int c);
-int		putstr(char *s);
+int		putstr(const char *s);
 int		putptr(void *ptr);
 int		putnbr(int n);
 int		put_uint(unsigned int n);
 int		puthex(unsigned int num, char hex);
-int		ft_printf(char *c, ...);
+int		ft_printf(const char *c, ...);
 #endif
