@@ -6,7 +6,7 @@
 /*   By: yachan <yachan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:21:38 by yachan            #+#    #+#             */
-/*   Updated: 2024/07/07 19:22:10 by yachan           ###   ########.fr       */
+/*   Updated: 2024/08/15 16:38:04 by yachan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,22 @@ static int	valid_form_spec(const char *c)
 	form_spec = "cspdiuxX%%";
 	while (c[i])
 	{
-		j = 0;
-		while (form_spec[j])
+		if (c[i] == '%')
 		{
-			if (form_spec[j] == c[i])
-				return (TRUE);
-			j++;
+			j = 0;
+			while (form_spec[j] && form_spec[j] != c[i + 1])
+			{
+				if (!form_spec[j])
+				{
+					putstr("Invalid specifier\n");
+					return (FALSE);
+				}
+				j++;
+			}
 		}
 		i++;
 	}
-	putstr("Invalid specifier\n");
-	return (FALSE);
+	return (TRUE);
 }
 
 static int	process_format(const char *c, int *i, va_list arg)
